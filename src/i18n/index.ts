@@ -1,5 +1,8 @@
-import enUS from './en-US';
+import enUS from './en-us';
+import ptBR from './pt-br';
 
 export default {
-  'en-US': enUS
+  'en-us': enUS,
+  'pt-br': ptBR,
+  'es': ptBR,
 };

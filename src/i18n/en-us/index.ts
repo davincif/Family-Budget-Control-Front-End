@@ -2,6 +2,7 @@
 // so you can safely delete all default props below
 
 export default {
+  '': '',
   LOGIN: 'login',
   EMAIL: 'email',
   PASSWORD: 'password',

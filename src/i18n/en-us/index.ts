@@ -8,4 +8,6 @@ export default {
   PASSWORD: 'password',
   REQUIRED: 'required',
   INVALID: 'invalid',
+  REGISTER: 'register',
+  BIRTHDATE: 'birth date',
 };

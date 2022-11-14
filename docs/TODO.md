@@ -1,0 +1,4 @@
+- Local Storage use education
+- Atomic Design
+- Dummy or Smart components
+- Composables (vue specific)

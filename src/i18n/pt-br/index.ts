@@ -8,4 +8,7 @@ export default {
   PASSWORD: 'senha',
   REQUIRED: 'obrigatório',
   INVALID: 'inválido',
+  REGISTER: 'cadastrar',
+  NAME: 'nome',
+  BIRTHDATE: 'data de nascimento',
 };

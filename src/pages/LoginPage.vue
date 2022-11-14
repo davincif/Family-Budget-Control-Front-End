@@ -2,6 +2,7 @@
   <q-page class="row items-center justify-evenly">
     <q-form @submit="logUser">
       <q-input
+        id="login-ipt-uname"
         class="upper"
         filled
         type="email"
@@ -12,19 +13,22 @@
           (val, rules) => rules.email(val) || $t('INVALID'),
         ]"
         lazy-rules
+        autocomplete="email"
       />
-
       <q-input
+        id="login-ipt-upassword"
         filled
         type="password"
         color="teal"
         :label="lodash.capitalize($t('PASSWORD'))"
         v-model="uPassword"
-        :rules="[(val) => ruleValdiator($t(passwordRule(val)))]"
+        :rules="[passwordRule]"
         lazy-rules
+        autocomplete="current-password"
       />
 
       <q-btn color="primary" :label="$t('LOGIN')" type="submit" />
+      <q-btn to="/auth/register" color="secondary" :label="$t('REGISTER')" />
     </q-form>
   </q-page>
 </template>
@@ -33,8 +37,7 @@
 import { ref } from 'vue';
 import lodash from 'lodash';
 
-import { isPasswordValid } from 'src/core/LoginCore';
-import { PasswordErrroEnum } from 'src/models/core/PasswordErrorEnum';
+import { passwordRule } from 'src/utils/rules';
 
 // Local States
 const uEmail = ref('');
@@ -43,41 +46,11 @@ const uPassword = ref('');
 function logUser() {
   console.log('logUser', uEmail, uPassword);
 }
-
-/**
- * A filter to be applyed always a custom rule is used with translation
- */
-function ruleValdiator(val: string) {
-  return val || true;
-}
-
-/**
- * Check if the password matches the business rules
- * @param val the password to check
- * @returns '' for success, error Label for translation otherwise
- */
-function passwordRule(val: string): string {
-  let msg = '';
-
-  const passError = isPasswordValid(val);
-  switch (passError) {
-    case PasswordErrroEnum.EMPTY:
-      msg = 'REQUIRED';
-      break;
-
-    case PasswordErrroEnum.TOOSHORT:
-      msg = 'INVALID';
-      break;
-  }
-
-  return msg;
-}
-
-// const capt = lodash.captalize;
 </script>
 
 <style lang="sass" scoped>
 @import '../css/app'
+
 p
   margin-top: 2rem
   background-color: white

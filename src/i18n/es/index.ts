@@ -11,4 +11,6 @@ export default {
   REGISTER: 'registrarse',
   NAME: 'nombre',
   BIRTHDATE: 'fecha de nacimiento',
+  INVALID_DATE: 'fecha invalid',
+  FUTURE_DATE: 'la fecha esta en el futuro',
 };

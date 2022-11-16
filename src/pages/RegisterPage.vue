@@ -47,22 +47,10 @@
           </q-btn>
         </template>
       </q-input>
-      <q-input
-        id="register-ipt-birthdate"
-        filled
-        type="text"
-        v-model="uBirth"
-        :label="lodash.capitalize($t('BIRTHDATE'))"
-        hint="yyyy/mm/dd"
-        lazy-rules
-        autocomplete="bday"
-      >
-        <template v-slot:append>
-          <q-btn dense flat>A</q-btn>
-        </template>
-      </q-input>
-
-      <DateBtnComponent />
+      <DateInputMolecule
+        v-model:selected-date="uBirth"
+        :rules="[birthdayRule]"
+      />
 
       <q-btn
         id="register-btn-register"
@@ -84,13 +72,13 @@
 import { ref } from 'vue';
 import lodash from 'lodash';
 
-import { passwordRule } from 'src/utils/rules';
-import DateBtnComponent from 'src/components/DateBtnComponent.vue';
+import { passwordRule, birthdayRule } from 'src/utils/rules';
+import DateInputMolecule from 'src/components/molecules/DateInputMolecule.vue';
 
 // Local States
 const uName = ref('');
 const uEmail = ref('');
-const uBirth = ref('----/--/--');
+const uBirth = ref('');
 const uPassword = ref('');
 const uPasswordShow = ref(false);
 

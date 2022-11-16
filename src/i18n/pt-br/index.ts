@@ -11,4 +11,6 @@ export default {
   REGISTER: 'cadastrar',
   NAME: 'nome',
   BIRTHDATE: 'data de nascimento',
+  INVALID_DATE: 'data inválida',
+  FUTURE_DATE: 'a data está no futuro',
 };

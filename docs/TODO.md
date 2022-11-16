@@ -1,4 +1,8 @@
 - Local Storage use education
 - Atomic Design
+  - A ideia é que seja mais fácil para os Designers de Front-end (Front do front) desenvolverem as telas sem se preocuparem com os mecanismos por trás destas.
+  - Talvez seja interessante exister uma página de
 - Dummy or Smart components
+  - Todos os componentes, teoricamente, irão buscar suas informações de algum lugar centralizador (como um serviço ou um controlador de estados), portanto nenhum componente será propriamete "smart", ficando responsáveis, no máximo, apenas por invocar a mudança de estado do supracitado serviço
 - Composables (vue specific)
+- Lembrar de buscar sobre arquitetura de estilo

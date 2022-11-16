@@ -9,5 +9,8 @@ export default {
   REQUIRED: 'required',
   INVALID: 'invalid',
   REGISTER: 'register',
+  NAME: 'name',
   BIRTHDATE: 'birth date',
+  INVALID_DATE: 'invalid date',
+  FUTURE_DATE: 'date is in the future',
 };

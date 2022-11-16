@@ -7,7 +7,7 @@ const passwordRules = {
 /**
  * Teste if the password is valid or not
  * @param password the password to be tested
- * @returns PasswordErrroEnum
+ * @returns which was the error found in the password, if any
  */
 export function isPasswordValid(password: string): PasswordErrroEnum {
   if (!password) {

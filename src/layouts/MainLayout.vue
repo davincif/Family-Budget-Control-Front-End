@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import HeaderComponent from 'components/HeaderComponent.vue';
+import HeaderComponent from 'src/components/organisms/HeaderComponent.vue';
 
 const isLeftDrawerOpen = ref(false);
 </script>

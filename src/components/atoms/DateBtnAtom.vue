@@ -16,32 +16,39 @@
   </q-btn>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-export default {
-  setup() {
-    const date = ref('2019/03/01');
-    const proxyDate = ref('2019/03/01');
+// PROPS DEFINITIONS AND SETS
+export interface DateBtnAtomProps {
+  selectedDate: string;
+}
+export interface DateBtnAtomEmits {
+  (e: 'update:selectedDate', state: string): void;
+}
 
-    return {
-      date,
-      proxyDate,
+// Props and Emits
+const props = withDefaults(defineProps<DateBtnAtomProps>(), {
+  selectedDate: '',
+});
+const emits = defineEmits<DateBtnAtomEmits>();
 
-      updateProxy() {
-        proxyDate.value = date.value;
-      },
+// Local States
+const date = ref(props.selectedDate);
+const proxyDate = ref(date.value);
 
-      save() {
-        date.value = proxyDate.value;
-      },
-    };
-  },
-};
+function updateProxy() {
+  proxyDate.value = date.value;
+}
+
+function save() {
+  date.value = proxyDate.value;
+  emits('update:selectedDate', date.value);
+}
 </script>
 
 <style lang="sass" scoped>
-@import '../css/app'
+@import 'src/css/app'
 .q-btn.piker-btn
  width: auto
  margin: 0

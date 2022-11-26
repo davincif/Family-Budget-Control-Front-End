@@ -6,3 +6,7 @@
   - Todos os componentes, teoricamente, irão buscar suas informações de algum lugar centralizador (como um serviço ou um controlador de estados), portanto nenhum componente será propriamete "smart", ficando responsáveis, no máximo, apenas por invocar a mudança de estado do supracitado serviço
 - Composables (vue specific)
 - Lembrar de buscar sobre arquitetura de estilo
+
+---
+
+Anotations

@@ -71,9 +71,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import lodash from 'lodash';
+import { ValidationRule } from 'quasar';
 
-import { passwordRule, birthdayRule } from 'src/utils/rules';
+import { RulesUtils } from 'src/utils/rules';
 import DateInputMolecule from 'src/components/molecules/DateInputMolecule.vue';
+import { RegisterCore } from 'src/core/RegisterCore';
+import { LoginCore } from 'src/core/LoginCore';
 
 // Local States
 const uName = ref('');
@@ -82,10 +85,26 @@ const uBirth = ref('');
 const uPassword = ref('');
 const uPasswordShow = ref(false);
 
+// initializaitons
+const loginCore = LoginCore.getInstance();
+const registerCore = RegisterCore.getInstance();
+const rulesUtils = RulesUtils.getInstance({});
+
+// Validation Funcitons
+const passwordRule: ValidationRule = (val) => {
+  return rulesUtils.passwordRule(val, loginCore);
+};
+
+const birthdayRule: ValidationRule = (val) => {
+  return rulesUtils.birthdayRule(val, registerCore);
+};
+
+// UI interaction Funcitons
 function toglePasswordShow() {
   uPasswordShow.value = !uPasswordShow.value;
 }
 
+// Btn action Functions
 function regUser() {
   console.log('regUser');
   console.log('uName', uName.value);

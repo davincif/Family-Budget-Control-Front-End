@@ -34,15 +34,27 @@
 </template>
 
 <script setup lang="ts">
+import { ValidationRule } from 'quasar';
 import { ref } from 'vue';
 import lodash from 'lodash';
 
-import { passwordRule } from 'src/utils/rules';
+import { RulesUtils } from 'src/utils/rules';
+import { LoginCore } from 'src/core/LoginCore';
 
 // Local States
 const uEmail = ref('');
 const uPassword = ref('');
 
+// initializaitons
+const loginCore = LoginCore.getInstance();
+const rulesUtils = RulesUtils.getInstance({});
+
+// Validation Funcitons
+const passwordRule: ValidationRule = (val) => {
+  return rulesUtils.passwordRule(val, loginCore);
+};
+
+// Btn action Functions
 function logUser() {
   console.log('logUser', uEmail, uPassword);
 }
